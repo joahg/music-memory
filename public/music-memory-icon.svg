@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Music Memory Practice icon</title>
+  <desc id="desc">A stylized music note over warm paper and teal waves.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7f0dc" />
+      <stop offset="100%" stop-color="#e7dcc3" />
+    </linearGradient>
+    <linearGradient id="ink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#123a3f" />
+      <stop offset="100%" stop-color="#0d5d5f" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#paper)" />
+  <path d="M28 176c31-28 61-43 92-45 33-2 64 7 108 35v34H28z" fill="#f08b49" opacity="0.95" />
+  <path d="M35 158c29-22 54-33 79-35 30-2 64 10 114 42v24H35z" fill="#156b68" opacity="0.85" />
+  <path d="M162 56v91.5c-8.4-5-18.6-7.5-30.7-7.5-25.9 0-46.8 12.6-46.8 33.8 0 20.4 18.8 32.2 41.7 32.2 25.9 0 43.8-14.9 43.8-37.4V92.6l45-10.4V48z" fill="url(#ink)" />
+  <circle cx="183" cy="57" r="16" fill="#f7f0dc" opacity="0.65" />
+</svg>

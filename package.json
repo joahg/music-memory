@@ -1,0 +1,28 @@
+{
+  "name": "music-memory-pwa",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "sync:assets": "node scripts/sync-web-assets.mjs",
+    "predev": "npm run sync:assets",
+    "dev": "vite",
+    "prebuild": "npm run sync:assets",
+    "build": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json && vite build",
+    "build:pages": "PWA_BASE_PATH=/music-memory-ipad/ npm run build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.2.0",
+    "typescript": "^6.0.3",
+    "vite": "^7.3.2",
+    "vite-plugin-pwa": "^1.2.0"
+  }
+}

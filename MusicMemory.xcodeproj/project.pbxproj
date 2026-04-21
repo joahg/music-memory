@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10A8506604B375C6A2A5C0ED /* MusicMemoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37B93826C717075436E3311 /* MusicMemoryApp.swift */; };
+		132B39C36F03123700E5C313 /* DrillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C42B4B54E9DDF704F7F8F40 /* DrillView.swift */; };
+		1619EB4F95BA87326B934315 /* monk-railroad-travel-song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EEFEED409D7C3C5C2D4DAF91 /* monk-railroad-travel-song.mp3 */; };
+		16E6F84946D34370B4097C26 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB62C3B1F4C3017E9F0C7969 /* AppModel.swift */; };
+		1A301D1E4E253BEBA81727E2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81E66A15101B7AAB82A0CE7 /* RootView.swift */; };
+		1A8F0F838FB4E81232F18614 /* grieg-holberg-suite-prelude.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3DECD8B470349BB51B22B11E /* grieg-holberg-suite-prelude.mp3 */; };
+		2D17729722E0A08CFC0BD7CD /* parker-yardbird-suite.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8F331EBA59A4F01E132AF70 /* parker-yardbird-suite.mp3 */; };
+		3672BD33A545533DFF9320BD /* rodriguez-la-cumparsita.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BF13CD21600CDCE768BBCE48 /* rodriguez-la-cumparsita.mp3 */; };
+		452417EF302A300CE7CA8EDA /* faure-requiem-pie-jesu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 05FB88D3AA191E66A2487BA7 /* faure-requiem-pie-jesu.mp3 */; };
+		4B5BB5B9E0F50A6C546DDA6E /* joplin-maple-leaf-rag.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D07E45EBA1813E3A2FDC945D /* joplin-maple-leaf-rag.mp3 */; };
+		56AFB396691C2326F7456254 /* lloyd-webber-requiem-pie-jesu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D21F53B1AFD15D166759CEA3 /* lloyd-webber-requiem-pie-jesu.mp3 */; };
+		5A2CAD830FED04E72857A1ED /* strauss-also-sprach-zarathustra-introduction.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 61FC4A0AEAE7DEEFC6DC366F /* strauss-also-sprach-zarathustra-introduction.mp3 */; };
+		603F1927EA16CA3650E0E236 /* GameTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F82DD4242F4EE106DAE36 /* GameTheme.swift */; };
+		69F669C76A804DED2D96A4D1 /* gould-american-salute.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B07037555EFBA824CBB577C /* gould-american-salute.mp3 */; };
+		79753DAC75F4F9D4FEEB99BD /* holst-suite-no-2-march.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 62C155D71859CB3C87DCB952 /* holst-suite-no-2-march.mp3 */; };
+		7FD3D63F17F379FFCFFFDAB1 /* ProgressDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD92E0BCB302088D3D3C4D5 /* ProgressDashboardView.swift */; };
+		8A0157B62E51B5401C01C2E4 /* CompetitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8AC8C1EC56E6E85B7BDADB /* CompetitionView.swift */; };
+		8B5CF7813208C6FD838CCAF6 /* HistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F670DC9AF5655B4B281F2F4A /* HistoryStore.swift */; };
+		9A6E55855530F98EAE42C028 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4153D2FC5D0780FDFE6BF8B /* LearnView.swift */; };
+		9E19845D16EE27C4616F2CF1 /* tower-fanfare-for-the-uncommon-woman-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6F5CDFFDC4F6F5B8DF660CBB /* tower-fanfare-for-the-uncommon-woman-1.mp3 */; };
+		9EC4FE6448E9AAE0E8AF2A96 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24B08CD0959D3884E9AE498 /* HomeView.swift */; };
+		B142994E2A50B5C5072D45A4 /* gliere-red-poppy-russian-sailors-dance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 23B5F6F2DFBA1955F5A04AA6 /* gliere-red-poppy-russian-sailors-dance.mp3 */; };
+		B6C32F724D04BC6C42826D99 /* mozart-exsultate-jubilate-alleluja.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1EAFBF3E74CAF33907DD9000 /* mozart-exsultate-jubilate-alleluja.mp3 */; };
+		BDE60A3C32BF4869156897FA /* adams-short-ride-on-a-fast-machine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 918601DFA95BB5BDA8DF757E /* adams-short-ride-on-a-fast-machine.mp3 */; };
+		D7D1A0407B2D31822F893538 /* beethoven-symphony-5-movement-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F25ECD22A26A9295C6DC394D /* beethoven-symphony-5-movement-1.mp3 */; };
+		DADA3238F27B8B55146C79B4 /* MusicMemoryCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8F338BCA175628BBC91F725A /* MusicMemoryCore */; };
+		DE6E38B87E34CDD7D11A0F2F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6F4C37CFE580BF09402A67B8 /* README.md */; };
+		ECC49468B7A7785E15B5BFF1 /* AppSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53F88C730BD7599B747279F /* AppSection.swift */; };
+		F3465B80865120EA8C75E574 /* copland-rodeo-hoe-down.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8638C8B69ACD6E57BBDF045D /* copland-rodeo-hoe-down.mp3 */; };
+		FD12ED19B02AFC5B25968F9C /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640705E8E9EE1E3F18D2DFF5 /* LibraryView.swift */; };
+		FDE49D1901ADF28760E97490 /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58DB652CF5FE0B1FF0A6353 /* AudioPlayerController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		05FB88D3AA191E66A2487BA7 /* faure-requiem-pie-jesu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "faure-requiem-pie-jesu.mp3"; sourceTree = "<group>"; };
+		1EAFBF3E74CAF33907DD9000 /* mozart-exsultate-jubilate-alleluja.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "mozart-exsultate-jubilate-alleluja.mp3"; sourceTree = "<group>"; };
+		23B5F6F2DFBA1955F5A04AA6 /* gliere-red-poppy-russian-sailors-dance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "gliere-red-poppy-russian-sailors-dance.mp3"; sourceTree = "<group>"; };
+		3DECD8B470349BB51B22B11E /* grieg-holberg-suite-prelude.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "grieg-holberg-suite-prelude.mp3"; sourceTree = "<group>"; };
+		61FC4A0AEAE7DEEFC6DC366F /* strauss-also-sprach-zarathustra-introduction.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "strauss-also-sprach-zarathustra-introduction.mp3"; sourceTree = "<group>"; };
+		62C155D71859CB3C87DCB952 /* holst-suite-no-2-march.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "holst-suite-no-2-march.mp3"; sourceTree = "<group>"; };
+		640705E8E9EE1E3F18D2DFF5 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		6C42B4B54E9DDF704F7F8F40 /* DrillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillView.swift; sourceTree = "<group>"; };
+		6F4C37CFE580BF09402A67B8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6F5CDFFDC4F6F5B8DF660CBB /* tower-fanfare-for-the-uncommon-woman-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tower-fanfare-for-the-uncommon-woman-1.mp3"; sourceTree = "<group>"; };
+		85147B5146CB7CE2AF17002D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8638C8B69ACD6E57BBDF045D /* copland-rodeo-hoe-down.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "copland-rodeo-hoe-down.mp3"; sourceTree = "<group>"; };
+		918601DFA95BB5BDA8DF757E /* adams-short-ride-on-a-fast-machine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "adams-short-ride-on-a-fast-machine.mp3"; sourceTree = "<group>"; };
+		9A1A30642335FE5BA251E025 /* MusicMemory.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = MusicMemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B07037555EFBA824CBB577C /* gould-american-salute.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "gould-american-salute.mp3"; sourceTree = "<group>"; };
+		9FD92E0BCB302088D3D3C4D5 /* ProgressDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDashboardView.swift; sourceTree = "<group>"; };
+		A53F88C730BD7599B747279F /* AppSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSection.swift; sourceTree = "<group>"; };
+		BF13CD21600CDCE768BBCE48 /* rodriguez-la-cumparsita.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "rodriguez-la-cumparsita.mp3"; sourceTree = "<group>"; };
+		C4153D2FC5D0780FDFE6BF8B /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
+		C58DB652CF5FE0B1FF0A6353 /* AudioPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
+		C8F331EBA59A4F01E132AF70 /* parker-yardbird-suite.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "parker-yardbird-suite.mp3"; sourceTree = "<group>"; };
+		CB62C3B1F4C3017E9F0C7969 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		D0376C1C4AC6C5EF5029D2EB /* MusicMemoryCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MusicMemoryCore; path = local/MusicMemoryCore; sourceTree = SOURCE_ROOT; };
+		D07E45EBA1813E3A2FDC945D /* joplin-maple-leaf-rag.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "joplin-maple-leaf-rag.mp3"; sourceTree = "<group>"; };
+		D21F53B1AFD15D166759CEA3 /* lloyd-webber-requiem-pie-jesu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "lloyd-webber-requiem-pie-jesu.mp3"; sourceTree = "<group>"; };
+		E24B08CD0959D3884E9AE498 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E37B93826C717075436E3311 /* MusicMemoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicMemoryApp.swift; sourceTree = "<group>"; };
+		EEFEED409D7C3C5C2D4DAF91 /* monk-railroad-travel-song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "monk-railroad-travel-song.mp3"; sourceTree = "<group>"; };
+		EF8AC8C1EC56E6E85B7BDADB /* CompetitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionView.swift; sourceTree = "<group>"; };
+		F25ECD22A26A9295C6DC394D /* beethoven-symphony-5-movement-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "beethoven-symphony-5-movement-1.mp3"; sourceTree = "<group>"; };
+		F670DC9AF5655B4B281F2F4A /* HistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStore.swift; sourceTree = "<group>"; };
+		F81E66A15101B7AAB82A0CE7 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		FE6F82DD4242F4EE106DAE36 /* GameTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTheme.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65DE00448B1EE81C645BD9A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DADA3238F27B8B55146C79B4 /* MusicMemoryCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		087CB2E3AB3C020D1C8C6C51 = {
+			isa = PBXGroup;
+			children = (
+				AD07121D051A45F907FD8DA9 /* MusicMemoryApp */,
+				C13E9A0BC659BB700E20C00A /* Packages */,
+				671813325B181FBA66D4A413 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		159CE3DA48AD7E64F60B82AF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E37B93826C717075436E3311 /* MusicMemoryApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2A1F022CC09A124E0FFD0731 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				FE6F82DD4242F4EE106DAE36 /* GameTheme.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		5AE964B5EB75FB4FEB00C886 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA73748EBF6FDABFB7BA74CF /* Audio */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		671813325B181FBA66D4A413 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A1A30642335FE5BA251E025 /* MusicMemory.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		90396CF0E29EED81E5062267 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CB62C3B1F4C3017E9F0C7969 /* AppModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		99C1747333AD997AA99C0E95 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C58DB652CF5FE0B1FF0A6353 /* AudioPlayerController.swift */,
+				F670DC9AF5655B4B281F2F4A /* HistoryStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AA73748EBF6FDABFB7BA74CF /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				918601DFA95BB5BDA8DF757E /* adams-short-ride-on-a-fast-machine.mp3 */,
+				F25ECD22A26A9295C6DC394D /* beethoven-symphony-5-movement-1.mp3 */,
+				8638C8B69ACD6E57BBDF045D /* copland-rodeo-hoe-down.mp3 */,
+				05FB88D3AA191E66A2487BA7 /* faure-requiem-pie-jesu.mp3 */,
+				23B5F6F2DFBA1955F5A04AA6 /* gliere-red-poppy-russian-sailors-dance.mp3 */,
+				9B07037555EFBA824CBB577C /* gould-american-salute.mp3 */,
+				3DECD8B470349BB51B22B11E /* grieg-holberg-suite-prelude.mp3 */,
+				62C155D71859CB3C87DCB952 /* holst-suite-no-2-march.mp3 */,
+				D07E45EBA1813E3A2FDC945D /* joplin-maple-leaf-rag.mp3 */,
+				D21F53B1AFD15D166759CEA3 /* lloyd-webber-requiem-pie-jesu.mp3 */,
+				EEFEED409D7C3C5C2D4DAF91 /* monk-railroad-travel-song.mp3 */,
+				1EAFBF3E74CAF33907DD9000 /* mozart-exsultate-jubilate-alleluja.mp3 */,
+				C8F331EBA59A4F01E132AF70 /* parker-yardbird-suite.mp3 */,
+				6F4C37CFE580BF09402A67B8 /* README.md */,
+				BF13CD21600CDCE768BBCE48 /* rodriguez-la-cumparsita.mp3 */,
+				61FC4A0AEAE7DEEFC6DC366F /* strauss-also-sprach-zarathustra-introduction.mp3 */,
+				6F5CDFFDC4F6F5B8DF660CBB /* tower-fanfare-for-the-uncommon-woman-1.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		AD07121D051A45F907FD8DA9 /* MusicMemoryApp */ = {
+			isa = PBXGroup;
+			children = (
+				85147B5146CB7CE2AF17002D /* Info.plist */,
+				159CE3DA48AD7E64F60B82AF /* App */,
+				C138839A36B545C8ED718EC6 /* Models */,
+				5AE964B5EB75FB4FEB00C886 /* Resources */,
+				99C1747333AD997AA99C0E95 /* Services */,
+				90396CF0E29EED81E5062267 /* ViewModels */,
+				BF4302678B22D02A04B93698 /* Views */,
+			);
+			path = MusicMemoryApp;
+			sourceTree = "<group>";
+		};
+		BF4302678B22D02A04B93698 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF8AC8C1EC56E6E85B7BDADB /* CompetitionView.swift */,
+				6C42B4B54E9DDF704F7F8F40 /* DrillView.swift */,
+				E24B08CD0959D3884E9AE498 /* HomeView.swift */,
+				C4153D2FC5D0780FDFE6BF8B /* LearnView.swift */,
+				640705E8E9EE1E3F18D2DFF5 /* LibraryView.swift */,
+				9FD92E0BCB302088D3D3C4D5 /* ProgressDashboardView.swift */,
+				F81E66A15101B7AAB82A0CE7 /* RootView.swift */,
+				2A1F022CC09A124E0FFD0731 /* Shared */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C138839A36B545C8ED718EC6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A53F88C730BD7599B747279F /* AppSection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C13E9A0BC659BB700E20C00A /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				D0376C1C4AC6C5EF5029D2EB /* MusicMemoryCore */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C272C1C35B7ECE493667CA06 /* MusicMemory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C798C4F9E4CA3B0849C5E118 /* Build configuration list for PBXNativeTarget "MusicMemory" */;
+			buildPhases = (
+				D04CA2B459ACB417D07EA132 /* Sources */,
+				020AB0620B1B0670A26F571E /* Resources */,
+				65DE00448B1EE81C645BD9A7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MusicMemory;
+			packageProductDependencies = (
+				8F338BCA175628BBC91F725A /* MusicMemoryCore */,
+			);
+			productName = MusicMemory;
+			productReference = 9A1A30642335FE5BA251E025 /* MusicMemory.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		64BA4290E4F45D58557A0BFF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					C272C1C35B7ECE493667CA06 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 945C8F19FD3DB5D316A3538A /* Build configuration list for PBXProject "MusicMemory" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 087CB2E3AB3C020D1C8C6C51;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A9E982171761076E46F999C7 /* XCLocalSwiftPackageReference "local/MusicMemoryCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 671813325B181FBA66D4A413 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C272C1C35B7ECE493667CA06 /* MusicMemory */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		020AB0620B1B0670A26F571E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE6E38B87E34CDD7D11A0F2F /* README.md in Resources */,
+				BDE60A3C32BF4869156897FA /* adams-short-ride-on-a-fast-machine.mp3 in Resources */,
+				D7D1A0407B2D31822F893538 /* beethoven-symphony-5-movement-1.mp3 in Resources */,
+				F3465B80865120EA8C75E574 /* copland-rodeo-hoe-down.mp3 in Resources */,
+				452417EF302A300CE7CA8EDA /* faure-requiem-pie-jesu.mp3 in Resources */,
+				B142994E2A50B5C5072D45A4 /* gliere-red-poppy-russian-sailors-dance.mp3 in Resources */,
+				69F669C76A804DED2D96A4D1 /* gould-american-salute.mp3 in Resources */,
+				1A8F0F838FB4E81232F18614 /* grieg-holberg-suite-prelude.mp3 in Resources */,
+				79753DAC75F4F9D4FEEB99BD /* holst-suite-no-2-march.mp3 in Resources */,
+				4B5BB5B9E0F50A6C546DDA6E /* joplin-maple-leaf-rag.mp3 in Resources */,
+				56AFB396691C2326F7456254 /* lloyd-webber-requiem-pie-jesu.mp3 in Resources */,
+				1619EB4F95BA87326B934315 /* monk-railroad-travel-song.mp3 in Resources */,
+				B6C32F724D04BC6C42826D99 /* mozart-exsultate-jubilate-alleluja.mp3 in Resources */,
+				2D17729722E0A08CFC0BD7CD /* parker-yardbird-suite.mp3 in Resources */,
+				3672BD33A545533DFF9320BD /* rodriguez-la-cumparsita.mp3 in Resources */,
+				5A2CAD830FED04E72857A1ED /* strauss-also-sprach-zarathustra-introduction.mp3 in Resources */,
+				9E19845D16EE27C4616F2CF1 /* tower-fanfare-for-the-uncommon-woman-1.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D04CA2B459ACB417D07EA132 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16E6F84946D34370B4097C26 /* AppModel.swift in Sources */,
+				ECC49468B7A7785E15B5BFF1 /* AppSection.swift in Sources */,
+				FDE49D1901ADF28760E97490 /* AudioPlayerController.swift in Sources */,
+				8A0157B62E51B5401C01C2E4 /* CompetitionView.swift in Sources */,
+				132B39C36F03123700E5C313 /* DrillView.swift in Sources */,
+				603F1927EA16CA3650E0E236 /* GameTheme.swift in Sources */,
+				8B5CF7813208C6FD838CCAF6 /* HistoryStore.swift in Sources */,
+				9EC4FE6448E9AAE0E8AF2A96 /* HomeView.swift in Sources */,
+				9A6E55855530F98EAE42C028 /* LearnView.swift in Sources */,
+				FD12ED19B02AFC5B25968F9C /* LibraryView.swift in Sources */,
+				10A8506604B375C6A2A5C0ED /* MusicMemoryApp.swift in Sources */,
+				7FD3D63F17F379FFCFFFDAB1 /* ProgressDashboardView.swift in Sources */,
+				1A301D1E4E253BEBA81727E2 /* RootView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2FAC340B98E5106059B77330 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5739DC60DAC95F5980B0BE59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MusicMemoryApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joahg.musicmemory;
+				PRODUCT_NAME = MusicMemory;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		929CC5A0684200CDC0F843AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		EEAF9040858935B3DF1C9861 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MusicMemoryApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joahg.musicmemory;
+				PRODUCT_NAME = MusicMemory;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		945C8F19FD3DB5D316A3538A /* Build configuration list for PBXProject "MusicMemory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FAC340B98E5106059B77330 /* Debug */,
+				929CC5A0684200CDC0F843AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C798C4F9E4CA3B0849C5E118 /* Build configuration list for PBXNativeTarget "MusicMemory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEAF9040858935B3DF1C9861 /* Debug */,
+				5739DC60DAC95F5980B0BE59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		A9E982171761076E46F999C7 /* XCLocalSwiftPackageReference "local/MusicMemoryCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = local/MusicMemoryCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8F338BCA175628BBC91F725A /* MusicMemoryCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MusicMemoryCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 64BA4290E4F45D58557A0BFF /* Project object */;
+}

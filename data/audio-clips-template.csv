@@ -1,0 +1,17 @@
+output_file,source_file,start_time_seconds,duration_seconds
+adams-short-ride-on-a-fast-machine.mp3,data/source-audio/adams-short-ride-on-a-fast-machine.mp3,0,30
+beethoven-symphony-5-movement-1.mp3,data/source-audio/beethoven-symphony-5-movement-1.mp3,0,30
+copland-rodeo-hoe-down.mp3,data/source-audio/copland-rodeo-hoe-down.mp3,0,30
+faure-requiem-pie-jesu.mp3,data/source-audio/faure-requiem-pie-jesu.mp3,0,30
+gliere-red-poppy-russian-sailors-dance.mp3,data/source-audio/gliere-red-poppy-russian-sailors-dance.mp3,0,30
+gould-american-salute.mp3,data/source-audio/gould-american-salute.mp3,0,30
+grieg-holberg-suite-prelude.mp3,data/source-audio/grieg-holberg-suite-prelude.mp3,0,30
+holst-suite-no-2-march.mp3,data/source-audio/holst-suite-no-2-march.mp3,0,30
+joplin-maple-leaf-rag.mp3,data/source-audio/joplin-maple-leaf-rag.mp3,0,30
+lloyd-webber-requiem-pie-jesu.mp3,data/source-audio/lloyd-webber-requiem-pie-jesu.mp3,0,30
+monk-railroad-travel-song.mp3,data/source-audio/monk-railroad-travel-song.mp3,0,30
+mozart-exsultate-jubilate-alleluja.mp3,data/source-audio/mozart-exsultate-jubilate-alleluja.mp3,0,30
+parker-yardbird-suite.mp3,data/source-audio/parker-yardbird-suite.mp3,0,30
+rodriguez-la-cumparsita.mp3,data/source-audio/rodriguez-la-cumparsita.mp3,0,30
+strauss-also-sprach-zarathustra-introduction.mp3,data/source-audio/strauss-also-sprach-zarathustra-introduction.mp3,0,30
+tower-fanfare-for-the-uncommon-woman-1.mp3,data/source-audio/tower-fanfare-for-the-uncommon-woman-1.mp3,0,30

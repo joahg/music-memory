@@ -1,0 +1,130 @@
+[
+  {
+    "id": "adams-short-ride-on-a-fast-machine",
+    "composer": "Adams",
+    "majorWork": null,
+    "selection": "Short Ride on a Fast Machine",
+    "ensemble": "Orchestra",
+    "audioFile": "adams-short-ride-on-a-fast-machine.mp3"
+  },
+  {
+    "id": "beethoven-symphony-5-movement-1",
+    "composer": "Beethoven",
+    "majorWork": "Symphony No. 5, \"Fate\"",
+    "selection": "Movement 1",
+    "ensemble": "Orchestra",
+    "audioFile": "beethoven-symphony-5-movement-1.mp3"
+  },
+  {
+    "id": "copland-rodeo-hoe-down",
+    "composer": "Copland",
+    "majorWork": "Rodeo",
+    "selection": "Hoe-Down",
+    "ensemble": "Orchestra",
+    "audioFile": "copland-rodeo-hoe-down.mp3"
+  },
+  {
+    "id": "faure-requiem-pie-jesu",
+    "composer": "Fauré",
+    "majorWork": "Requiem in D minor",
+    "selection": "Pie Jesu",
+    "ensemble": "Child's Vocal",
+    "audioFile": "faure-requiem-pie-jesu.mp3"
+  },
+  {
+    "id": "gliere-red-poppy-russian-sailors-dance",
+    "composer": "Glière",
+    "majorWork": "The Red Poppy",
+    "selection": "Russian Sailor's Dance",
+    "ensemble": "Orchestra",
+    "audioFile": "gliere-red-poppy-russian-sailors-dance.mp3"
+  },
+  {
+    "id": "gould-american-salute",
+    "composer": "Gould",
+    "majorWork": null,
+    "selection": "American Salute",
+    "ensemble": "Orchestra",
+    "audioFile": "gould-american-salute.mp3"
+  },
+  {
+    "id": "grieg-holberg-suite-prelude",
+    "composer": "Grieg",
+    "majorWork": "Holberg Suite",
+    "selection": "Prelude",
+    "ensemble": "Strings",
+    "audioFile": "grieg-holberg-suite-prelude.mp3"
+  },
+  {
+    "id": "holst-suite-no-2-march",
+    "composer": "Holst",
+    "majorWork": "Suite No. 2",
+    "selection": "March",
+    "ensemble": "Band",
+    "audioFile": "holst-suite-no-2-march.mp3"
+  },
+  {
+    "id": "joplin-maple-leaf-rag",
+    "composer": "Joplin",
+    "majorWork": null,
+    "selection": "Maple Leaf Rag",
+    "ensemble": "Jazz Piano",
+    "audioFile": "joplin-maple-leaf-rag.mp3"
+  },
+  {
+    "id": "lloyd-webber-requiem-pie-jesu",
+    "composer": "Lloyd Webber",
+    "majorWork": "Requiem",
+    "selection": "Pie Jesu",
+    "ensemble": "Child's Vocal",
+    "audioFile": "lloyd-webber-requiem-pie-jesu.mp3"
+  },
+  {
+    "id": "monk-railroad-travel-song",
+    "composer": "Monk",
+    "majorWork": null,
+    "selection": "Railroad (Travel Song)",
+    "ensemble": "Jazz Piano",
+    "audioFile": "monk-railroad-travel-song.mp3"
+  },
+  {
+    "id": "mozart-exsultate-jubilate-alleluja",
+    "composer": "Mozart",
+    "majorWork": "Exsultate, jubilate",
+    "selection": "Alleluja",
+    "ensemble": "Choral",
+    "audioFile": "mozart-exsultate-jubilate-alleluja.mp3"
+  },
+  {
+    "id": "parker-yardbird-suite",
+    "composer": "Parker",
+    "majorWork": null,
+    "selection": "Yardbird Suite",
+    "ensemble": "Jazz Ensemble",
+    "audioFile": "parker-yardbird-suite.mp3"
+  },
+  {
+    "id": "rodriguez-la-cumparsita",
+    "composer": "Rodríguez",
+    "majorWork": null,
+    "selection": "La Cumparsita",
+    "ensemble": "Latin Orchestra",
+    "audioFile": "rodriguez-la-cumparsita.mp3"
+  },
+  {
+    "id": "strauss-also-sprach-zarathustra-introduction",
+    "composer": "Strauss",
+    "majorWork": "Also sprach Zarathustra",
+    "selection": "Introduction",
+    "ensemble": "Orchestra",
+    "audioFile": "strauss-also-sprach-zarathustra-introduction.mp3"
+  },
+  {
+    "id": "tower-fanfare-for-the-uncommon-woman-1",
+    "composer": "Tower",
+    "majorWork": null,
+    "selection": "Fanfare for the Uncommon Woman, #1",
+    "ensemble": "Brass & Percussion",
+    "audioFile": "tower-fanfare-for-the-uncommon-woman-1.mp3"
+  }
+]

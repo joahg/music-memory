@@ -1,0 +1,63 @@
+name: MusicMemory
+
+options:
+  minimumXcodeGenVersion: 2.45.4
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+
+packages:
+  MusicMemoryCore:
+    path: local/MusicMemoryCore
+
+settings:
+  base:
+    SWIFT_VERSION: 5.0
+    DEVELOPMENT_TEAM: ""
+
+targets:
+  MusicMemory:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: MusicMemoryApp
+        excludes:
+          - "**/.DS_Store"
+          - "Resources/Assets.xcassets"
+    info:
+      path: MusicMemoryApp/Info.plist
+      properties:
+        UILaunchScreen: {}
+        UIApplicationSupportsIndirectInputEvents: true
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UIRequiresFullScreen: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.joahg.musicmemory
+        PRODUCT_NAME: MusicMemory
+        TARGETED_DEVICE_FAMILY: "2"
+        CODE_SIGN_STYLE: Automatic
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: MusicMemoryApp/Info.plist
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: 1.0
+        SUPPORTS_MACCATALYST: NO
+    dependencies:
+      - package: MusicMemoryCore
+        product: MusicMemoryCore
+
+schemes:
+  MusicMemory:
+    build:
+      targets:
+        MusicMemory: all
+    run:
+      config: Debug
+    archive:
+      config: Release
