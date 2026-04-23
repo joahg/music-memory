@@ -17,155 +17,74 @@ interface AudioPlayerState {
 }
 
 export function useAudioPlayer(): AudioPlayerState {
-  const audioRef = useRef<HTMLAudioElement | null>(null)
-  const clipEndTimeRef = useRef<number | null>(null)
-  const durationCacheRef = useRef<Map<string, number>>(new Map())
+  const audioContextRef = useRef<AudioContext | null>(null)
+  const bufferCacheRef = useRef<Map<string, Promise<AudioBuffer>>>(new Map())
+  const activeSourceRef = useRef<AudioBufferSourceNode | null>(null)
   const playRequestRef = useRef(0)
-  const stopTimerRef = useRef<number | null>(null)
   const [activePieceId, setActivePieceId] = useState<string | null>(null)
   const [clipRangeLabel, setClipRangeLabel] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [isPlaying, setIsPlaying] = useState(false)
 
-  if (!audioRef.current && typeof Audio !== 'undefined') {
-    audioRef.current = new Audio()
-    audioRef.current.preload = 'auto'
-  }
-
   useEffect(() => {
-    const audio = audioRef.current
-    if (!audio) {
-      return undefined
-    }
-
-    const clearStopTimer = () => {
-      if (stopTimerRef.current !== null) {
-        window.clearTimeout(stopTimerRef.current)
-        stopTimerRef.current = null
-      }
-    }
-
-    const clearClipWindow = () => {
-      clearStopTimer()
-      clipEndTimeRef.current = null
-      setClipRangeLabel(null)
-    }
-
-    const handlePlay = () => setIsPlaying(true)
-    const handlePause = () => {
-      clearStopTimer()
-      setIsPlaying(false)
-    }
-    const handleEnded = () => {
-      clearClipWindow()
-      setIsPlaying(false)
-      setActivePieceId(null)
-    }
-    const handleTimeUpdate = () => {
-      if (clipEndTimeRef.current === null || audio.currentTime < clipEndTimeRef.current) {
-        return
-      }
-
-      clearClipWindow()
-      audio.pause()
-      setIsPlaying(false)
-      setActivePieceId(null)
-    }
-    const handleError = () => {
-      clearClipWindow()
-      setIsPlaying(false)
-      setActivePieceId(null)
-      setError('The audio clip could not be played.')
-    }
-
-    audio.addEventListener('play', handlePlay)
-    audio.addEventListener('pause', handlePause)
-    audio.addEventListener('ended', handleEnded)
-    audio.addEventListener('timeupdate', handleTimeUpdate)
-    audio.addEventListener('error', handleError)
-
     return () => {
-      clearClipWindow()
-      audio.pause()
-      audio.currentTime = 0
-      audio.removeEventListener('play', handlePlay)
-      audio.removeEventListener('pause', handlePause)
-      audio.removeEventListener('ended', handleEnded)
-      audio.removeEventListener('timeupdate', handleTimeUpdate)
-      audio.removeEventListener('error', handleError)
+      stopActivePlayback(activeSourceRef)
+
+      const audioContext = audioContextRef.current
+      audioContextRef.current = null
+
+      if (audioContext) {
+        void audioContext.close()
+      }
     }
   }, [])
 
   async function play(source: string, pieceId: string) {
-    const audio = audioRef.current
-    if (!audio) {
-      return
-    }
-
     playRequestRef.current += 1
     const playRequestId = playRequestRef.current
     setError(null)
-
-    if (stopTimerRef.current !== null) {
-      window.clearTimeout(stopTimerRef.current)
-      stopTimerRef.current = null
-    }
-
-    clipEndTimeRef.current = null
+    stopActivePlayback(activeSourceRef)
     setClipRangeLabel(null)
-    audio.pause()
+    setIsPlaying(false)
+    setActivePieceId(null)
 
     try {
-      const duration = await loadDuration(audio, source, durationCacheRef.current)
+      const audioContext = getAudioContext(audioContextRef)
+      await audioContext.resume()
+
+      const buffer = await loadAudioBuffer(audioContext, source, bufferCacheRef.current)
 
       if (playRequestId !== playRequestRef.current) {
         return
       }
 
-      const clipStart = chooseClipStart(pieceId, duration)
-      const clipEnd = Math.min(duration, clipStart + CLIP_DURATION_SECONDS)
-      const playbackSource = buildPlaybackSource(source, clipStart, clipEnd)
+      const clipStart = chooseClipStart(pieceId, buffer.duration)
+      const clipDuration = Math.min(CLIP_DURATION_SECONDS, Math.max(buffer.duration - clipStart, 0.1))
+      const clipEnd = Math.min(buffer.duration, clipStart + clipDuration)
 
-      audio.src = playbackSource
-      audio.load()
-      await waitForMetadata(audio)
-      await waitForCanPlay(audio)
+      const playbackSource = audioContext.createBufferSource()
+      playbackSource.buffer = buffer
+      playbackSource.connect(audioContext.destination)
+      activeSourceRef.current = playbackSource
 
-      if (playRequestId !== playRequestRef.current) {
-        return
-      }
-
-      clipEndTimeRef.current = clipEnd
       setClipRangeLabel(`${formatTimestamp(clipStart)}-${formatTimestamp(clipEnd)}`)
-
       setActivePieceId(pieceId)
-      await audio.play()
 
-      if (playRequestId !== playRequestRef.current) {
-        audio.pause()
-        audio.currentTime = 0
-        return
-      }
-
-      stopTimerRef.current = window.setTimeout(() => {
-        if (clipEndTimeRef.current === null) {
+      playbackSource.onended = () => {
+        if (activeSourceRef.current !== playbackSource || playRequestId !== playRequestRef.current) {
           return
         }
 
-        clipEndTimeRef.current = null
+        activeSourceRef.current = null
         setClipRangeLabel(null)
-        audio.pause()
+        setIsPlaying(false)
         setActivePieceId(null)
-      }, Math.max((clipEnd - clipStart) * 1000 + 150, 0))
-    } catch {
-      if (stopTimerRef.current !== null) {
-        window.clearTimeout(stopTimerRef.current)
-        stopTimerRef.current = null
       }
 
-      clipEndTimeRef.current = null
-      audio.pause()
-      audio.currentTime = 0
+      playbackSource.start(0, clipStart, clipDuration)
+      setIsPlaying(true)
+    } catch {
+      stopActivePlayback(activeSourceRef)
       setClipRangeLabel(null)
       setIsPlaying(false)
       setActivePieceId(null)
@@ -174,21 +93,8 @@ export function useAudioPlayer(): AudioPlayerState {
   }
 
   function stop() {
-    const audio = audioRef.current
-    if (!audio) {
-      return
-    }
-
     playRequestRef.current += 1
-
-    if (stopTimerRef.current !== null) {
-      window.clearTimeout(stopTimerRef.current)
-      stopTimerRef.current = null
-    }
-
-    clipEndTimeRef.current = null
-    audio.pause()
-    audio.currentTime = 0
+    stopActivePlayback(activeSourceRef)
     setClipRangeLabel(null)
     setIsPlaying(false)
     setActivePieceId(null)
@@ -204,18 +110,42 @@ export function useAudioPlayer(): AudioPlayerState {
   }
 }
 
-async function loadDuration(audio: HTMLAudioElement, source: string, cache: Map<string, number>): Promise<number> {
-  const cachedDuration = cache.get(source)
-  if (typeof cachedDuration === 'number') {
-    return cachedDuration
+function getAudioContext(audioContextRef: { current: AudioContext | null }): AudioContext {
+  if (audioContextRef.current) {
+    return audioContextRef.current
   }
 
-  audio.src = source
-  audio.load()
+  const AudioContextConstructor = window.AudioContext ?? (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext
+  if (!AudioContextConstructor) {
+    throw new Error('Web Audio is not supported in this browser.')
+  }
 
-  const duration = await waitForMetadata(audio)
-  cache.set(source, duration)
-  return duration
+  audioContextRef.current = new AudioContextConstructor()
+  return audioContextRef.current
+}
+
+async function loadAudioBuffer(
+  audioContext: AudioContext,
+  source: string,
+  cache: Map<string, Promise<AudioBuffer>>,
+): Promise<AudioBuffer> {
+  const cachedBuffer = cache.get(source)
+  if (cachedBuffer) {
+    return cachedBuffer
+  }
+
+  const loadingBuffer = fetch(source)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to load audio (${response.status}).`)
+      }
+
+      return response.arrayBuffer()
+    })
+    .then((buffer) => audioContext.decodeAudioData(buffer))
+
+  cache.set(source, loadingBuffer)
+  return loadingBuffer
 }
 
 function chooseClipStart(pieceId: string, duration: number): number {
@@ -239,58 +169,20 @@ function formatTimestamp(value: number): string {
   return `${minutes}:${seconds.toString().padStart(2, '0')}`
 }
 
-function buildPlaybackSource(source: string, clipStart: number, clipEnd: number): string {
-  if (clipStart <= 0) {
-    return source
-  }
-
-  return `${source}#t=${Math.max(0, Math.floor(clipStart))},${Math.max(0, Math.ceil(clipEnd))}`
-}
-
-async function waitForMetadata(audio: HTMLAudioElement): Promise<number> {
-  if (Number.isFinite(audio.duration) && audio.duration > 0) {
-    return audio.duration
-  }
-
-  return new Promise<number>((resolve, reject) => {
-    const handleLoadedMetadata = () => {
-      cleanup()
-      resolve(audio.duration)
-    }
-    const handleError = () => {
-      cleanup()
-      reject(new Error('Audio metadata could not be loaded.'))
-    }
-    const cleanup = () => {
-      audio.removeEventListener('loadedmetadata', handleLoadedMetadata)
-      audio.removeEventListener('error', handleError)
-    }
-
-    audio.addEventListener('loadedmetadata', handleLoadedMetadata)
-    audio.addEventListener('error', handleError)
-  })
-}
-
-async function waitForCanPlay(audio: HTMLAudioElement): Promise<void> {
-  if (audio.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+function stopActivePlayback(activeSourceRef: { current: AudioBufferSourceNode | null }) {
+  const activeSource = activeSourceRef.current
+  if (!activeSource) {
     return
   }
 
-  return new Promise<void>((resolve, reject) => {
-    const handleCanPlay = () => {
-      cleanup()
-      resolve()
-    }
-    const handleError = () => {
-      cleanup()
-      reject(new Error('Audio data could not be buffered for playback.'))
-    }
-    const cleanup = () => {
-      audio.removeEventListener('canplay', handleCanPlay)
-      audio.removeEventListener('error', handleError)
-    }
+  activeSourceRef.current = null
+  activeSource.onended = null
 
-    audio.addEventListener('canplay', handleCanPlay)
-    audio.addEventListener('error', handleError)
-  })
+  try {
+    activeSource.stop()
+  } catch {
+    // Ignore stop errors when the node has already ended.
+  }
+
+  activeSource.disconnect()
 }
