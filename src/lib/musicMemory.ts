@@ -57,20 +57,20 @@ export function drillQueue(pieces: Piece[], history: PracticeResult[]): Piece[] 
     historyByPiece.set(attempt.pieceId, existing)
   }
 
-  return [...pieces].sort((left, right) => {
-    const leftScore = priorityScore(left.id, historyByPiece)
-    const rightScore = priorityScore(right.id, historyByPiece)
-
-    if (leftScore === rightScore) {
-      if (left.composer === right.composer) {
-        return left.selection.localeCompare(right.selection)
+  return [...pieces]
+    .map((piece) => ({
+      piece,
+      randomOrder: Math.random(),
+      score: priorityScore(piece.id, historyByPiece),
+    }))
+    .sort((left, right) => {
+      if (left.score === right.score) {
+        return left.randomOrder - right.randomOrder
       }
 
-      return left.composer.localeCompare(right.composer)
-    }
-
-    return rightScore - leftScore
-  })
+      return right.score - left.score
+    })
+    .map(({ piece }) => piece)
 }
 
 export function competitionRound(pieces: Piece[], count: number): Piece[] {

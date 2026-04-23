@@ -7,7 +7,7 @@ interface CompetitionPrompt {
   composerGuess: string
   hasPlayed: boolean
   rating: PracticeRating | null
-  titleGuess: string
+  selectionGuessId: string
 }
 
 interface CompetitionViewProps {
@@ -37,6 +37,13 @@ export function CompetitionView({ onPlayPiece, onRecordBatch, onStopPlayback, pi
   const isReview = prompts.length > 0 && currentIndex >= prompts.length
   const currentPrompt = prompts[currentIndex]
   const allRated = prompts.length > 0 && prompts.every((prompt) => prompt.rating !== null)
+  const selectionOptions = useMemo(
+    () =>
+      [...pieces]
+        .sort((left, right) => displayTitle(left).localeCompare(displayTitle(right)))
+        .map((piece) => ({ id: piece.id, label: displayTitle(piece) })),
+    [pieces],
+  )
 
   const summaryCounts = useMemo(() => {
     return prompts.reduce(
@@ -58,7 +65,7 @@ export function CompetitionView({ onPlayPiece, onRecordBatch, onStopPlayback, pi
         composerGuess: '',
         hasPlayed: false,
         rating: null,
-        titleGuess: '',
+        selectionGuessId: '',
       })),
     )
     setCurrentIndex(0)
@@ -117,7 +124,7 @@ export function CompetitionView({ onPlayPiece, onRecordBatch, onStopPlayback, pi
           </div>
         </div>
 
-        <p className="supporting-text">Play once, type what you think it is, and move to the next prompt without revealing the answer.</p>
+        <p className="supporting-text">Play once, choose the piece from the list, type the composer, and move to the next prompt without revealing the answer.</p>
 
         <div className="button-row">
           <button
@@ -139,17 +146,22 @@ export function CompetitionView({ onPlayPiece, onRecordBatch, onStopPlayback, pi
           ) : null}
         </div>
 
-        <label className="field-label" htmlFor="title-guess">
-          Selection or full title
+        <label className="field-label" htmlFor="selection-guess">
+          Selection
         </label>
-        <input
+        <select
           className="text-input"
-          id="title-guess"
-          onChange={(event) => updatePrompt(currentIndex, { titleGuess: event.target.value })}
-          placeholder="Movement, title, or full work name"
-          type="text"
-          value={currentPrompt.titleGuess}
-        />
+          id="selection-guess"
+          onChange={(event) => updatePrompt(currentIndex, { selectionGuessId: event.target.value })}
+          value={currentPrompt.selectionGuessId}
+        >
+          <option value="">Choose a piece</option>
+          {selectionOptions.map((option) => (
+            <option key={option.id} value={option.id}>
+              {option.label}
+            </option>
+          ))}
+        </select>
 
         <label className="field-label" htmlFor="composer-guess">
           Composer
@@ -187,38 +199,42 @@ export function CompetitionView({ onPlayPiece, onRecordBatch, onStopPlayback, pi
       <p className="supporting-text">Compare each guess to the correct answer, then save the round into local progress.</p>
 
       <div className="stack-md">
-        {prompts.map((prompt, index) => (
-          <article className="piece-card review-card" key={prompt.piece.id}>
-            <div className="piece-card-header">
-              <span className="piece-chip">Prompt {index + 1}</span>
-              <span className="piece-chip">{prompt.piece.ensemble}</span>
-            </div>
-            <h3>{displayTitle(prompt.piece)}</h3>
-            <p className="piece-meta">{prompt.piece.composer}</p>
-            <div className="guess-grid">
-              <div>
-                <span className="field-label">Your title</span>
-                <p>{prompt.titleGuess || 'No title entered'}</p>
+        {prompts.map((prompt, index) => {
+          const guessedSelection = pieces.find((piece) => piece.id === prompt.selectionGuessId)
+
+          return (
+            <article className="piece-card review-card" key={prompt.piece.id}>
+              <div className="piece-card-header">
+                <span className="piece-chip">Prompt {index + 1}</span>
+                <span className="piece-chip">{prompt.piece.ensemble}</span>
               </div>
-              <div>
-                <span className="field-label">Your composer</span>
-                <p>{prompt.composerGuess || 'No composer entered'}</p>
+              <h3>{displayTitle(prompt.piece)}</h3>
+              <p className="piece-meta">{prompt.piece.composer}</p>
+              <div className="guess-grid">
+                <div>
+                  <span className="field-label">Your selection</span>
+                  <p>{guessedSelection ? displayTitle(guessedSelection) : 'No selection chosen'}</p>
+                </div>
+                <div>
+                  <span className="field-label">Your composer</span>
+                  <p>{prompt.composerGuess || 'No composer entered'}</p>
+                </div>
               </div>
-            </div>
-            <div className="button-row compact-row">
-              {reviewRatings.map(({ label, rating }) => (
-                <button
-                  className={`rating-button rating-${rating}${prompt.rating === rating ? ' is-selected' : ''}`}
-                  key={rating}
-                  onClick={() => updatePrompt(index, { rating })}
-                  type="button"
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-          </article>
-        ))}
+              <div className="button-row compact-row">
+                {reviewRatings.map(({ label, rating }) => (
+                  <button
+                    className={`rating-button rating-${rating}${prompt.rating === rating ? ' is-selected' : ''}`}
+                    key={rating}
+                    onClick={() => updatePrompt(index, { rating })}
+                    type="button"
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </article>
+          )
+        })}
       </div>
 
       <div className="button-row">
