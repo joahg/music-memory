@@ -313,6 +313,21 @@ p {
   gap: 0.75rem;
 }
 
+.piece-card-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: start;
+}
+
+.piece-card-actions > * {
+  width: 100%;
+}
+
+.reserved-button {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .review-card {
   gap: 1rem;
 }

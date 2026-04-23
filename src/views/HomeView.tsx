@@ -104,15 +104,20 @@ export function HomeView({
                 </div>
                 <h3>{displayTitle(piece)}</h3>
                 <p className="piece-meta">{piece.composer}</p>
-                <div className="button-row compact-row">
+                <div className="button-row compact-row piece-card-actions">
                   <button className="secondary-button" onClick={() => void onPlayPiece(piece)} type="button">
                     {playbackPieceId === piece.id ? 'Replay another window' : 'Play 30-second window'}
                   </button>
-                  {playbackPieceId === piece.id ? (
-                    <button className="ghost-button" onClick={onStopPlayback} type="button">
-                      Stop
-                    </button>
-                  ) : null}
+                  <button
+                    aria-hidden={playbackPieceId !== piece.id}
+                    className={`ghost-button${playbackPieceId === piece.id ? '' : ' reserved-button'}`}
+                    disabled={playbackPieceId !== piece.id}
+                    onClick={onStopPlayback}
+                    tabIndex={playbackPieceId === piece.id ? 0 : -1}
+                    type="button"
+                  >
+                    Stop
+                  </button>
                 </div>
               </article>
             )
