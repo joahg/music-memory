@@ -37,7 +37,7 @@ export function HomeView({
           <p className="eyebrow">Private family practice · offline-friendly</p>
           <h1>Music memory, ready for quick kitchen-table drills.</h1>
           <p className="hero-copy">
-            Practice with the local competition library, bundled 30-second clips, and progress that stays on this device.
+            Practice with the local competition library, bundled full recordings, random 30-second windows, and progress that stays on this device.
           </p>
           <div className="button-row">
             <button className="primary-button" onClick={() => onNavigate('drill')} type="button">
@@ -106,7 +106,7 @@ export function HomeView({
                 <p className="piece-meta">{piece.composer}</p>
                 <div className="button-row compact-row">
                   <button className="secondary-button" onClick={() => void onPlayPiece(piece)} type="button">
-                    {playbackPieceId === piece.id ? 'Replay clip' : 'Play clip'}
+                    {playbackPieceId === piece.id ? 'Replay another window' : 'Play 30-second window'}
                   </button>
                   {playbackPieceId === piece.id ? (
                     <button className="ghost-button" onClick={onStopPlayback} type="button">

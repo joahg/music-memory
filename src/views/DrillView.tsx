@@ -103,7 +103,7 @@ export function DrillView({
 
         <div className="button-row">
           <button className="primary-button" onClick={() => void onPlayPiece(currentPiece)} type="button">
-            {playbackPieceId === currentPiece.id ? 'Replay clip' : 'Play 30-second clip'}
+            {playbackPieceId === currentPiece.id ? 'Replay another window' : 'Play 30-second window'}
           </button>
           {playbackPieceId === currentPiece.id ? (
             <button className="ghost-button" onClick={onStopPlayback} type="button">

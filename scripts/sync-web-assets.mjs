@@ -12,7 +12,7 @@ const piecesSource = path.join(
   'Resources',
   'pieces.json',
 )
-const audioSourceDir = path.join(rootDir, 'MusicMemoryApp', 'Resources', 'Audio')
+const audioSourceDir = path.join(rootDir, 'data', 'source-audio')
 const publicDir = path.join(rootDir, 'public')
 const publicLibraryDir = path.join(publicDir, 'library')
 const publicAudioDir = path.join(publicDir, 'audio')
@@ -66,7 +66,7 @@ async function main() {
     await copyFile(path.join(audioSourceDir, audioFile), path.join(publicAudioDir, audioFile))
   }
 
-  process.stdout.write(`Synced ${pieces.length} pieces and ${expectedAudioFiles.length} audio files for the web app.\n`)
+  process.stdout.write(`Synced ${pieces.length} pieces and ${expectedAudioFiles.length} full-length audio files for the web app.\n`)
 }
 
 main().catch((error) => {

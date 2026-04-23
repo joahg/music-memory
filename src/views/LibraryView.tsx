@@ -124,7 +124,7 @@ export function LibraryView({
                 <p className="piece-meta">{piece.composer}</p>
                 <div className="button-row compact-row">
                   <button className="secondary-button" onClick={() => void onPlayPiece(piece)} type="button">
-                    {playbackPieceId === piece.id ? 'Replay clip' : 'Play clip'}
+                    {playbackPieceId === piece.id ? 'Replay another window' : 'Play 30-second window'}
                   </button>
                   {playbackPieceId === piece.id ? (
                     <button className="ghost-button" onClick={onStopPlayback} type="button">

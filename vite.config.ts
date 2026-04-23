@@ -16,7 +16,7 @@ export default defineConfig({
         id: base,
         name: 'Music Memory Practice',
         short_name: 'Music Memory',
-        description: 'Offline-friendly music memory practice with bundled excerpts and local progress tracking.',
+        description: 'Offline-friendly music memory practice with bundled local recordings, random 30-second windows, and local progress tracking.',
         start_url: base,
         scope: base,
         display: 'standalone',
@@ -33,7 +33,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{css,html,js,json,mp3,svg,webmanifest}'],
-        maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
+        maximumFileSizeToCacheInBytes: 100 * 1024 * 1024,
         cleanupOutdatedCaches: true
       }
     })

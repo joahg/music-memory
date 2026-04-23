@@ -71,7 +71,7 @@ export function LearnView({ onPlayPiece, onStopPlayback, pieces, playbackPieceId
 
         <div className="button-row">
           <button className="primary-button" onClick={() => void onPlayPiece(selectedPiece)} type="button">
-            {playbackPieceId === selectedPiece.id ? 'Replay 30-second clip' : 'Play 30-second clip'}
+            {playbackPieceId === selectedPiece.id ? 'Replay another window' : 'Play 30-second window'}
           </button>
           {playbackPieceId === selectedPiece.id ? (
             <button className="ghost-button" onClick={onStopPlayback} type="button">
@@ -81,7 +81,7 @@ export function LearnView({ onPlayPiece, onStopPlayback, pieces, playbackPieceId
         </div>
 
         <p className="supporting-text">
-          Use learn mode when you want the answer visible before playback for guided repetition and parent-supported study.
+          Use learn mode when you want the answer visible before playback for guided repetition and parent-supported study. Each replay picks a fresh 30-second window from the bundled recording.
         </p>
       </section>
     </div>

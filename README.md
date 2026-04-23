@@ -8,7 +8,7 @@ This repo now ships a browser-based progressive web app as the primary playable 
 - `docs/product-spec.md` tracks the MVP, screens, and current platform direction.
 - `local/MusicMemoryCore/` still holds the original Swift package models and planning logic that the web app mirrors.
 - `local/MusicMemoryCore/Sources/MusicMemoryCore/Resources/pieces.json` is the source of truth for the repertoire metadata.
-- `MusicMemoryApp/Resources/Audio/` is the source of truth for the bundled 30-second excerpt files used by the web app.
+- `data/source-audio/` is the source of truth for the bundled full-length MP3 files used by the web app.
 - `scripts/sync-web-assets.mjs` copies `pieces.json` and the expected MP3 files into the web app's public asset folders before dev and build runs.
 - `scripts/prepare_audio_clips.sh` and `scripts/validate_audio_library.sh` remain the audio prep and validation helpers.
 - `MusicMemoryApp/` and `project.yml` preserve the earlier native scaffold as reference work.
@@ -27,9 +27,9 @@ This repo now ships a browser-based progressive web app as the primary playable 
 Do not edit `public/library/pieces.json` or `public/audio/*` directly. Those are generated during `npm run sync:assets` from:
 
 - `local/MusicMemoryCore/Sources/MusicMemoryCore/Resources/pieces.json`
-- `MusicMemoryApp/Resources/Audio/*.mp3`
+- `data/source-audio/*.mp3`
 
-The sync step validates that every `audioFile` in `pieces.json` exists before the web app builds.
+The sync step validates that every `audioFile` in `pieces.json` exists before the web app builds. The browser then plays a random 30-second window from each bundled full-length file at runtime.
 
 ## Deployment
 

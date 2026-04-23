@@ -19,6 +19,8 @@ import { LibraryView } from './views/LibraryView'
 import { ProgressView } from './views/ProgressView'
 
 const sectionOrder: AppSection[] = ['home', 'learn', 'drill', 'competition', 'library', 'progress']
+const mobileNavMediaQuery = '(max-width: 720px)'
+
 const sectionLabels: Record<AppSection, string> = {
   home: 'Home',
   learn: 'Learn',
@@ -32,6 +34,8 @@ export default function App() {
   const [pieces, setPieces] = useState<Piece[]>([])
   const [history, setHistory] = useState(loadHistory)
   const [section, setSection] = useState<AppSection>(readSectionFromHash())
+  const [isMobileNav, setIsMobileNav] = useState(readMobileNavState)
+  const [isNavOpen, setIsNavOpen] = useState(false)
   const [loadError, setLoadError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [isOnline, setIsOnline] = useState(typeof navigator === 'undefined' ? true : navigator.onLine)
@@ -91,8 +95,37 @@ export default function App() {
   }, [])
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia(mobileNavMediaQuery)
+
+    const updateIsMobileNav = (event?: MediaQueryListEvent) => {
+      const matches = event?.matches ?? mediaQuery.matches
+      setIsMobileNav(matches)
+
+      if (!matches) {
+        setIsNavOpen(false)
+      }
+    }
+
+    updateIsMobileNav()
+
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', updateIsMobileNav)
+      return () => mediaQuery.removeEventListener('change', updateIsMobileNav)
+    }
+
+    mediaQuery.addListener(updateIsMobileNav)
+    return () => mediaQuery.removeListener(updateIsMobileNav)
+  }, [])
+
+  useEffect(() => {
     audio.stop()
   }, [section])
+
+  useEffect(() => {
+    if (isMobileNav) {
+      setIsNavOpen(false)
+    }
+  }, [isMobileNav, section])
 
   const summaries = useMemo(() => progressSummaries(history), [history])
   const queue = useMemo(() => drillQueue(pieces, history), [history, pieces])
@@ -144,6 +177,8 @@ export default function App() {
   }
 
   function navigate(nextSection: AppSection) {
+    setSection(nextSection)
+    setIsNavOpen(false)
     window.location.hash = nextSection
   }
 
@@ -152,14 +187,25 @@ export default function App() {
       <div className="ambient ambient-one" />
       <div className="ambient ambient-two" />
 
-      <aside className="sidebar panel">
+      {isMobileNav ? (
+        <button
+          aria-hidden={!isNavOpen}
+          aria-label="Close navigation"
+          className={`sidebar-backdrop${isNavOpen ? ' is-visible' : ''}`}
+          onClick={() => setIsNavOpen(false)}
+          tabIndex={isNavOpen ? 0 : -1}
+          type="button"
+        />
+      ) : null}
+
+      <aside className={`sidebar panel${isNavOpen ? ' is-open' : ''}`}>
         <div className="sidebar-brand">
           <p className="eyebrow">Music Memory</p>
           <h1>Practice Studio</h1>
-          <p className="supporting-text">Bundled clips, no sign-in, local-only progress.</p>
+          <p className="supporting-text">Bundled full tracks, no sign-in, local-only progress.</p>
         </div>
 
-        <nav className="nav-list" aria-label="Primary navigation">
+        <nav className="nav-list" aria-label="Primary navigation" id="primary-navigation">
           {sectionOrder.map((item) => (
             <button
               className={`nav-button${section === item ? ' is-active' : ''}`}
@@ -183,13 +229,25 @@ export default function App() {
 
       <main className="main-panel">
         <header className="topbar panel">
-          <div>
+          <div className="topbar-copy">
             <p className="eyebrow">Current section</p>
             <h2>{sectionLabels[section]}</h2>
           </div>
+          {isMobileNav ? (
+            <button
+              aria-controls="primary-navigation"
+              aria-expanded={isNavOpen}
+              className="ghost-button mobile-nav-toggle"
+              onClick={() => setIsNavOpen((current) => !current)}
+              type="button"
+            >
+              {isNavOpen ? 'Close' : 'Menu'}
+            </button>
+          ) : null}
           <div className="topbar-status">
+            {audio.clipRangeLabel ? <span className="piece-chip">Window {audio.clipRangeLabel}</span> : null}
             {audio.error ? <span className="alert-pill">{audio.error}</span> : null}
-            {audio.isPlaying ? <span className="success-pill">Clip playing</span> : <span className="piece-chip">Ready</span>}
+            {audio.isPlaying ? <span className="success-pill">30-second window playing</span> : <span className="piece-chip">Ready</span>}
           </div>
         </header>
 
@@ -284,4 +342,12 @@ export default function App() {
 function readSectionFromHash(): AppSection {
   const hash = window.location.hash.replace('#', '')
   return sectionOrder.includes(hash as AppSection) ? (hash as AppSection) : 'home'
+}
+
+function readMobileNavState(): boolean {
+  if (typeof window === 'undefined') {
+    return false
+  }
+
+  return window.matchMedia(mobileNavMediaQuery).matches
 }

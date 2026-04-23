@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 JSON_PATH="$ROOT_DIR/local/MusicMemoryCore/Sources/MusicMemoryCore/Resources/pieces.json"
-AUDIO_DIR="${1:-$ROOT_DIR/MusicMemoryApp/Resources/Audio}"
+AUDIO_DIR="${1:-$ROOT_DIR/data/source-audio}"
 
 python3 - <<'PY' "$JSON_PATH" "$AUDIO_DIR"
 import json

@@ -82,7 +82,7 @@ export function CompetitionView({ onPlayPiece, onRecordBatch, onStopPlayback, pi
         </div>
 
         <p className="supporting-text">
-          Each prompt gives one play. Type your guess, move on, and score the whole round only after the review screen.
+          Each prompt gives one play. That play uses a random 30-second window from the bundled local recording. Type your guess, move on, and score the whole round only after the review screen.
         </p>
 
         <label className="field-label" htmlFor="round-size">
@@ -129,7 +129,7 @@ export function CompetitionView({ onPlayPiece, onRecordBatch, onStopPlayback, pi
             }}
             type="button"
           >
-            {currentPrompt.hasPlayed ? 'Clip already used' : 'Play clip once'}
+            {currentPrompt.hasPlayed ? 'Window already used' : 'Play window once'}
           </button>
 
           {playbackPieceId === currentPrompt.piece.id ? (
