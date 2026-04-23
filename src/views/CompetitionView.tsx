@@ -73,9 +73,9 @@ export function CompetitionView({ onPlayPiece, onRecordBatch, onStopPlayback, pi
 
   if (prompts.length === 0) {
     return (
-      <section className="panel stack-md">
+      <section className="panel stack-md content-panel">
         <div className="section-header">
-          <div>
+          <div className="section-header-copy">
             <p className="eyebrow">Competition mode</p>
             <h1>Run a no-peeking round.</h1>
           </div>
@@ -107,9 +107,9 @@ export function CompetitionView({ onPlayPiece, onRecordBatch, onStopPlayback, pi
 
   if (!isReview && currentPrompt) {
     return (
-      <section className="panel stack-md">
+      <section className="panel stack-md content-panel">
         <div className="section-header">
-          <div>
+          <div className="section-header-copy">
             <p className="eyebrow">Competition prompt</p>
             <h1>
               Prompt {currentIndex + 1} of {prompts.length}
@@ -171,9 +171,9 @@ export function CompetitionView({ onPlayPiece, onRecordBatch, onStopPlayback, pi
   }
 
   return (
-    <section className="panel stack-md">
+    <section className="panel stack-md content-panel">
       <div className="section-header">
-        <div>
+        <div className="section-header-copy">
           <p className="eyebrow">Review</p>
           <h1>Score the round</h1>
         </div>

@@ -48,7 +48,7 @@ export function LibraryView({
 
   return (
     <div className="stack-lg">
-      <section className="panel filters-grid">
+      <section className="panel filters-grid content-panel">
         <div>
           <label className="field-label" htmlFor="library-search">
             Search
@@ -102,9 +102,9 @@ export function LibraryView({
         </div>
       </section>
 
-      <section className="panel stack-md">
+      <section className="panel stack-md content-panel">
         <div className="section-header">
-          <div>
+          <div className="section-header-copy">
             <p className="eyebrow">Library</p>
             <h1>{filteredPieces.length} matching pieces</h1>
           </div>

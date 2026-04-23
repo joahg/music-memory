@@ -49,9 +49,9 @@ export function ProgressView({
         </article>
       </section>
 
-      <section className="panel stack-md">
+      <section className="panel stack-md content-panel">
         <div className="section-header">
-          <div>
+          <div className="section-header-copy">
             <p className="eyebrow">Progress dashboard</p>
             <h1>{history.length} logged attempts</h1>
           </div>

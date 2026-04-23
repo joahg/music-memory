@@ -80,9 +80,9 @@ export function HomeView({
         </article>
       </section>
 
-      <section className="panel stack-md">
+      <section className="panel stack-md content-panel">
         <div className="section-header">
-          <div>
+          <div className="section-header-copy">
             <p className="eyebrow">Focus list</p>
             <h2>Spotlight pieces</h2>
           </div>

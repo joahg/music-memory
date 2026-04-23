@@ -59,9 +59,9 @@ export function DrillView({
 
   if (!currentPiece) {
     return (
-      <section className="panel stack-md">
+      <section className="panel stack-md content-panel">
         <div className="section-header">
-          <div>
+          <div className="section-header-copy">
             <p className="eyebrow">Drill mode</p>
             <h1>Session complete</h1>
           </div>
@@ -76,9 +76,9 @@ export function DrillView({
 
   return (
     <div className="stack-lg">
-      <section className="panel stack-md">
+      <section className="panel stack-md content-panel">
         <div className="section-header">
-          <div>
+          <div className="section-header-copy">
             <p className="eyebrow">Drill mode</p>
             <h1>Listen first, reveal second.</h1>
           </div>
@@ -118,7 +118,7 @@ export function DrillView({
         </div>
       </section>
 
-      <section className="panel stack-md">
+      <section className="panel stack-md content-panel">
         {!isRevealed ? (
           <>
             <p className="eyebrow">Current prompt</p>

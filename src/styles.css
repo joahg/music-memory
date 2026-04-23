@@ -189,6 +189,15 @@ p {
   gap: 1rem;
 }
 
+.content-panel {
+  padding: clamp(1.25rem, 1.8vw, 1.75rem);
+}
+
+.section-header-copy {
+  display: grid;
+  gap: 0.35rem;
+}
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(240px, 0.8fr);
