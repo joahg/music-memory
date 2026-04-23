@@ -20,7 +20,7 @@ This repo now ships a browser-based progressive web app as the primary playable 
 - `npm run build`
 - `npm run build:pages`
 
-`npm run build:pages` sets the base path for GitHub Pages deployments under `/music-memory-ipad/`.
+`npm run build:pages` sets the base path for the current GitHub Pages deployment under `/music-memory/`.
 
 ## Asset Flow
 

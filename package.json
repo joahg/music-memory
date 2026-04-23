@@ -9,7 +9,7 @@
     "dev": "vite",
     "prebuild": "npm run sync:assets",
     "build": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json && vite build",
-    "build:pages": "PWA_BASE_PATH=/music-memory-ipad/ npm run build",
+    "build:pages": "PWA_BASE_PATH=/music-memory/ npm run build",
     "preview": "vite preview"
   },
   "dependencies": {
